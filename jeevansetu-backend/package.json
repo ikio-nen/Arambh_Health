@@ -1,16 +1,14 @@
 {
   "name": "jeevansetu-backend",
   "version": "1.0.0",
-  "description": "",
+  "private": true,
+  "description": "JeevanSetu backend — Express + PostgreSQL JSON API",
   "main": "src/server.js",
   "scripts": {
-  "dev": "nodemon src/server.js",
-  "start": "node src/server.js"
-},
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "type": "commonjs",
+    "dev": "nodemon src/server.js",
+    "start": "node src/server.js",
+    "migrate": "node src/config/migrate.js"
+  },
   "dependencies": {
     "bcrypt": "^6.0.0",
     "cors": "^2.8.6",
