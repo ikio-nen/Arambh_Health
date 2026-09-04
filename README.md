@@ -1,4 +1,4 @@
-# JeevanSetu
+Arambh Health
 
 Emergency-to-care platform. A monorepo holding three apps described in the
 **Unified Build Guide v4** and the **Frontend Walkthrough**:
