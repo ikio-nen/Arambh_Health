@@ -1,13 +1,13 @@
-# JeevanSetu
+# Arambh Health
 
 Emergency-to-care platform. A monorepo holding three apps described in the
 **Unified Build Guide v4** and the **Frontend Walkthrough**:
 
 | App | Stack | What it is | Port |
 |-----|-------|-----------|------|
-| `jeevansetu-backend` | Node.js + Express + PostgreSQL | JSON API owned by Dev 1–4 (auth, patients/hospitals/emergency, consultations/follow-ups/timeline, audit logs) | `4000` |
-| `jeevansetu-ai-service` | Python + FastAPI + spaCy | Triage/symptom extraction (`POST /extract-case-data`) — zero backend dependencies | `8001` |
-| `jeevansetu-frontend` | Static HTML/CSS/JS | No build step — open with the VS Code Live Server extension | `5500` (Live Server) |
+| `arambh-health-backend` | Node.js + Express + PostgreSQL | JSON API owned by Dev 1–4 (auth, patients/hospitals/emergency, consultations/follow-ups/timeline, audit logs) | `4000` |
+| `arambh-health-ai-service` | Python + FastAPI + spaCy | Triage/symptom extraction (`POST /extract-case-data`) — zero backend dependencies | `8001` |
+| `arambh-health-frontend` | Static HTML/CSS/JS | No build step — open with the VS Code Live Server extension | `5500` (Live Server) |
 
 > All code files are intentionally empty. Fill each one in using the matching
 > snippets in the two PDFs, then commit and push.
@@ -15,8 +15,8 @@ Emergency-to-care platform. A monorepo holding three apps described in the
 ## Repo layout
 
 ```
-jeevansetu/
-+-- jeevansetu-backend/
+arambh-health/
++-- arambh-health-backend/
 |   +-- migrations/                 001_init.sql · 002_consultations.sql · 003_audit_logs.sql
 |   +-- src/
 |       +-- index.js, app.js        boots the server, mounts every route
@@ -26,12 +26,12 @@ jeevansetu/
 |       |                           consultations/followups/timeline (Dev3) · audit (Dev4)
 |       +-- utils/                  jwt.js, hash.js (Dev1) · geo.js (Dev2)
 |                                   auditLog.js, aiClient.js (Dev4)
-+-- jeevansetu-ai-service/
++-- arambh-health-ai-service/
 |   +-- app/main.py                 FastAPI entrypoint
 |   +-- app/routes/extract.py       POST /extract-case-data
 |   +-- app/nlp/extractor.py        spaCy / rule-based extraction
 |   +-- app/models/schemas.py       request/response models
-+-- jeevansetu-frontend/
++-- arambh-health-frontend/
     +-- index.html, login.html, signup.html, emergency.html, dashboard.html
     +-- consultation.html, timeline.html, manage-staff.html, audit-log.html
     +-- assets/css/styles.css
@@ -49,11 +49,11 @@ Notes
 
 ## Run order (local)
 
-1. `jeevansetu-backend` — `npm install && npm run dev` → `http://localhost:4000`
+1. `arambh-health-backend` — `npm install && npm run dev` → `http://localhost:4000`
    (run `node src/config/migrate.js` after creating the DB)
-2. `jeevansetu-ai-service` — `pip install -r requirements.txt`, download the
+2. `arambh-health-ai-service` — `pip install -r requirements.txt`, download the
    spaCy model, then `uvicorn app.main:app --reload --port 8001`
-3. `jeevansetu-frontend` — open `index.html` with Live Server; make sure
+3. `arambh-health-frontend` — open `index.html` with Live Server; make sure
    `API_BASE` in `assets/js/api.js` points at the backend port
 
 ## Endpoint map (what the frontend calls)
