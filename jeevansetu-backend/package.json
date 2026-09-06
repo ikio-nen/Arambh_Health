@@ -3,10 +3,10 @@
   "version": "1.0.0",
   "private": true,
   "description": "JeevanSetu backend — Express + PostgreSQL JSON API",
-  "main": "src/index.js",
+  "main": "src/server.js",
   "scripts": {
-    "dev": "node --watch src/index.js",
-    "start": "node src/index.js",
+    "dev": "nodemon src/server.js",
+    "start": "node src/server.js",
     "migrate": "node src/config/migrate.js"
   },
   "dependencies": {
@@ -19,5 +19,14 @@
   },
   "allowScripts": {
     "bcrypt@5.1.1": true
+    "bcrypt": "^6.0.0",
+    "cors": "^2.8.6",
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1",
+    "jsonwebtoken": "^9.0.3",
+    "pg": "^8.23.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.14"
   }
 }

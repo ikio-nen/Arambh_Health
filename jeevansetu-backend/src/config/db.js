@@ -1,3 +1,12 @@
+<<<<<<< HEAD
+const { Pool } = require('pg');
+
+const pool = new Pool({
+  connectionString: process.env.DATABASE_URL
+});
+
+module.exports = pool;
+=======
 // src/config/db.js
 // Single shared pg Pool — used by migrate.js and every route later.
 const { Pool } = require('pg');
@@ -15,3 +24,4 @@ module.exports = {
   pool,
   query: (text, params) => pool.query(text, params),
 };
+>>>>>>> origin/main

@@ -3,6 +3,11 @@ const cors = require('cors');
 const consultationsRouter = require('./routes/consultations');
 const followupsRouter = require('./routes/followups');
 const timelineRouter = require('./routes/timeline');
+require('dotenv').config();
+
+const express = require('express');
+const cors = require('cors');
+const authRoutes = require('./routes/auth');
 
 const app = express();
 
@@ -21,5 +26,8 @@ app.use((error, req, res, next) => {
 	console.error(error);
 	res.status(500).json({ error: 'Internal server error' });
 });
+
+module.exports = app;
+app.use('/auth', authRoutes);
 
 module.exports = app;
